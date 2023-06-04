@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       botonVisualizar.classList.add("btn", "btn-primary-celeus");
       botonVisualizar.addEventListener("click", function () {
         // Lógica para visualizar el registro
+        mostrarInformacion(registro.id);
       });
       accionesCell.appendChild(botonVisualizar);
 
@@ -209,12 +210,16 @@ document.addEventListener("DOMContentLoaded", function () {
         const modalTitulo = document.getElementById("modal-active-title");
         const modalCuerpo = document.getElementById("modal-active-body");
 
-        modalTitulo.textContent = `ID: ${active.id}`;
+        modalTitulo.textContent = `Activo con código: ${active.code}`;
         modalCuerpo.innerHTML = `
-          <p>Name: ${active.name}</p>
-          <p>Code: ${active.code}</p>
-          <p>Value: ${active.value}</p>
-          <p>Quantity: ${active.quantity}</p>
+          <p>Nombre: ${active.name}</p>
+          <p>Código: ${active.code}</p>
+          <p> Valor total activo: ${active.value}</p>
+          <p>Cantidad: ${active.quantity}</p>
+          <p>Serial: ${active.serial}</p>
+          <p>Características: ${active.characteristic}</p>
+          <p>Año en el que se adquirio: ${active.yearAcquired}</p>
+          <p>Imagen: </p>
           <img id='imageElementActive${active.id}' alt='image' width='30%' heigth='30%' >
           <!-- Agrega aquí el resto de las propiedades que deseas mostrar en el modal -->
         `;

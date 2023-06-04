@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Listar Activos</title>
+  <title>Listar Asignaciones</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -60,7 +60,8 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="principal.html">Home</a></li>
           <li class="breadcrumb-item">Activo</li>
-          <li class="breadcrumb-item active">Listar</li>
+          <li class="breadcrumb-item ">Asignados</li>
+          <li class="breadcrumb-item active">Lista</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -71,24 +72,26 @@
   
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Elementos</h5>
+                <h5 class="card-title">Elementos Asignados</h5>
   
                 <!-- Table with stripped rows -->
-                <table class="table" id="tabla-inventario">
+                <table class="table" id="tabla-assigned">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Código</th>
-                      <th scope="col">Valor</th>
-                      <th scope="col">Cantidad</th>
+                      <th scope="col">Nombre Activo</th>
+                      <th scope="col">Valor Total</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Fecha Asignación</th>
+                      <th scope="col">Responsable</th>
+                      <th scope="col">Tipo de Asignación</th>
                     </tr>
                   </thead>
                   <tbody>
                   </tbody>
                 </table>
                 <!-- End Table with stripped rows -->
-                <div id="paginacion"></div>
+                <div id="paginacion-assigned"></div>
               </div>
             </div>
   
@@ -99,10 +102,10 @@
                 <div class="modal-dialog modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="modal-active-title"></h5>
+                      <h5 class="modal-title" id="modal-assigned-title"></h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body" id="modal-active-body">
+                    <div class="modal-body" id="modal-assigned-body">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" id="closeButtonActiveModal" data-bs-dismiss="modal">Close</button>
@@ -135,7 +138,7 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/header.js"></script>
-  <script src="assets/js/active-list.js"></script>
+  <script src="assets/js/assigned.js"></script>
 
 </body>
 

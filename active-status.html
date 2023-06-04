@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Listar Activos</title>
+  <title>Estado Activos</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -55,40 +55,40 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Activos registrados en el inventario</h1>
-      <nav>
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="principal.html">Home</a></li>
-          <li class="breadcrumb-item">Activo</li>
-          <li class="breadcrumb-item active">Listar</li>
-        </ol>
-      </nav>
-    </div><!-- End Page Title -->
+        <h1>Revisión de estado de los activos del inventario</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="principal.html">Home</a></li>
+            <li class="breadcrumb-item">Activo</li>
+            <li class="breadcrumb-item active">Estado</li>
+          </ol>
+        </nav>
+      </div><!-- End Page Title -->
 
-    <section class="section">
+      <section class="section">
         <div class="row">
           <div class="col-lg-12">
   
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Elementos</h5>
+                <h5 class="card-title">Estado de Activos</h5>
   
                 <!-- Table with stripped rows -->
-                <table class="table" id="tabla-inventario">
+                <table class="table" id="tabla-estados">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nombre</th>
                       <th scope="col">Código</th>
-                      <th scope="col">Valor</th>
-                      <th scope="col">Cantidad</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Observación</th>
                     </tr>
                   </thead>
                   <tbody>
                   </tbody>
                 </table>
                 <!-- End Table with stripped rows -->
-                <div id="paginacion"></div>
+                <div id="paginacion-estado"></div>
               </div>
             </div>
   
@@ -113,29 +113,30 @@
         </div>
       </section>
 
-  </main><!-- End #main -->
+  </main>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
     
-  </footer><!-- End Footer -->
+</footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/chart.js/chart.umd.js"></script>
-  <script src="assets/vendor/echarts/echarts.min.js"></script>
-  <script src="assets/vendor/quill/quill.min.js"></script>
-  <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-  <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.umd.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.min.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/header.js"></script>
-  <script src="assets/js/active-list.js"></script>
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/active-status.js"></script>
+
 
 </body>
 

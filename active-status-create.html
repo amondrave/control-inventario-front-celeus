@@ -60,120 +60,54 @@
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Registro de elementos en el inventario</h1>
+        <h1>Registro de estados de los elementos en el inventario</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="principal.html">Home</a></li>
-            <li class="breadcrumb-item">activo</li>
+            <li class="breadcrumb-item">estados</li>
             <li class="breadcrumb-item active">Registrar</li>
           </ol>
         </nav>
       </div>
-      <!-- End Page Title -->
-
       <section class="section">
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Registrar Activo</h5>
-                <form id="create-active">
+                <h5 class="card-title">Registrar Estado</h5>
+                <form id="create-status">
                   <div class="row mb-3">
                     <label for="inputText" class="col-sm-2 col-form-label"
-                      >Nombre</label
+                      >Estado</label
                     >
                     <div class="col-sm-5">
-                      <input type="text" class="form-control" id="name" name="name" />
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="inputText" class="col-sm-2 col-form-label"
-                      >Serial</label
-                    >
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" id="serial" name="serial"/>
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label"
-                      >Tipo de activo</label
-                    >
-                    <div class="col-sm-5">
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                        id="activeType"
-                        name="activeType"
-                      ></select>
-                    </div>
+                        <select
+                          class="form-select"
+                          aria-label="Default select example"
+                          id="activeTypeStatus"
+                          name="activeTypeStatus"
+                        ></select>
+                      </div>
                   </div>
                   <div class="row mb-3">
                     <label for="inputText" class="col-sm-2 col-form-label"
-                      >Caracteristicas</label
+                      >Código del activo</label
                     >
                     <div class="col-sm-5">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="characteristic"
-                        name="characteristic"
-                      />
+                      <input type="text" class="form-control" placeholder="Ingrese el código" id="code" name="code" onkeydown="handleKeyPress(event)"/>
+                      <input type="hidden" name="idActiveStatus" id="idActiveStatus" value="">
                     </div>
                   </div>
                   <div class="row mb-3">
-                    <label for="inputText" class="col-sm-2 col-form-label"
-                      >Año de adquisición</label
-                    >
+                    <label for="inputText" class="col-sm-2 col-form-label">Observación</label>
                     <div class="col-sm-5">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="yearAcquired"
-                        name="yearAcquired"
-                      />
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-2 col-form-label"
-                      >Cantidad</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="quantity"
-                        name="quantity"
-                        min="1"
-                      />
-                    </div>
-                  </div>
-                  <div class="row mb-3">
-                    <label for="inputNumber" class="col-sm-2 col-form-label"
-                      >Valor total del elemento</label
-                    >
-                    <div class="col-sm-5">
-                      <input
-                        type="number"
-                        class="form-control"
-                        id="value"
-                        min="1"
-                        step="any"
-                        name="value"
-                      />
-                    </div>
-                  </div>
-                  <div class="row mb-6">
-                    <label for="inputNumber" class="col-sm-2 col-form-label"
-                      >Subir imagen</label
-                    >
-                    <div class="col-sm-5">
-                      <input class="form-control" type="file" id="formFile" name="formFile" />
+                      <textarea name="observation" id="observation" cols="40" rows="5"></textarea>
                     </div>
                   </div>
                   <br>
                   <div class="row mb-3">
                     <label class="col-sm-2 col-form-label"
-                      >Registrar Activo</label
+                      >Registrar Estado</label
                     >
                     <div class="col-sm-10">
                       <button type="submit" class="btn btn-primary-celeus">
@@ -187,10 +121,9 @@
           </div>
         </div>
       </section>
-    </main>
-    <!-- End #main -->
+      </main>
 
-    <!-- ======= Footer ======= -->
+       <!-- ======= Footer ======= -->
     <footer id="footer" class="footer"></footer>
     <!-- End Footer -->
 
@@ -214,6 +147,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/header.js"></script>
     <script src="assets/js/footer.js"></script>
-    <script src="assets/js/active.js"></script>
+    <script src="assets/js/create-status.js"></script>
   </body>
 </html>
