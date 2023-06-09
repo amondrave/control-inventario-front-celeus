@@ -116,12 +116,20 @@ function createOptionsChange(list) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        alert('El trabajador se ha registrado correctamente.');
-        // Redirigir a principal.html
-        window.location.href = 'worker.html';
+        Swal.fire({
+          title: 'Buen Trabajo!',
+          text: 'El registro ha sido exitoso!',
+          icon: 'success'
+        }).then(() => {
+          window.location.href = 'worker.html'; // Redireccionar a 'principal.html'
+        });
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert('fallo');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Lo sentimos no fue posible realizar el registro'
+        })
       });
 });

@@ -156,7 +156,11 @@ function createOptions(list) {
         .catch(error => {
           // Si ocurre un error en la consulta o en la respuesta del servidor
           console.error(error);
-          alert('No se encontró el activo');
+          alert('No se encontró el activo');        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'No se ha encontrado el trabajdor'
+          })
         });
     }
   }
@@ -202,12 +206,20 @@ function createOptions(list) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        alert('El registro ha sido exitoso.');
-        // Redirigir a principal.html
-        window.location.href = 'leaving-format-table.html';
+        Swal.fire({
+          title: 'Buen Trabajo!',
+          text: 'Las credenciales son correctas!',
+          icon: 'success'
+        }).then(() => {
+          window.location.href = 'leaving-format-table.html'; // Redireccionar a 'principal.html'
+        });
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert('fallo');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Se ha presentado un error'
+        })
       });
 });

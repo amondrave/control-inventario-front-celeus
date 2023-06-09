@@ -22,17 +22,31 @@ document.getElementById("from-login").addEventListener("submit", function(event)
           localStorage.setItem('userData', JSON.stringify(data));
           console.log('Datos guardados en localStorage:', data);
           // Realizar cualquier otra acción necesaria, como redireccionar a otra página
-          window.location.href = 'principal.html';
+          Swal.fire({
+            title: 'Buen Trabajo!',
+            text: 'Las credenciales son correctas!',
+            icon: 'success'
+          }).then(() => {
+            window.location.href = 'principal.html'; // Redireccionar a 'principal.html'
+          });
         } else {
           // Si la respuesta está vacía o no contiene datos de usuario válidos,
           // muestra una alerta al usuario
-          alert('No fue posible iniciar sesión. Verifica tus credenciales.');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Revisa tus credenciales'
+          })
         }
       })
       .catch(error => {
         console.error('Error:', error);
         // Muestra una alerta en caso de error de conexión o solicitud
-        alert('Ocurrió un error al intentar iniciar sesión. Inténtalo de nuevo más tarde.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Lo sentimos no ha sido posible loguearse'
+        })
       });
   });
   

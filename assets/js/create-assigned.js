@@ -130,7 +130,11 @@ function createOptions(list) {
         .catch(error => {
           // Si ocurre un error en la consulta o en la respuesta del servidor
           console.error(error);
-          alert('No se encontró el activo');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Lo sentimos no fue posible encontrar el registro'
+          })
         });
     }
   }
@@ -175,12 +179,20 @@ function createOptions(list) {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        alert('El activo se ha asignado correctamente.');
-        // Redirigir a principal.html
-        window.location.href = 'assigned.html';
+        Swal.fire({
+          title: 'Buen Trabajo!',
+          text: 'El registro ha sido exitoso!',
+          icon: 'success'
+        }).then(() => {
+          window.location.href = 'assigned.html'; // Redireccionar a 'principal.html'
+        });
       })
       .catch((error) => {
         console.error("Error:", error);
-        alert('fallo');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Lo sentimos no fue posible realizar el registro'
+        })
       });
 });
