@@ -4,6 +4,8 @@ let actives = [];
 
 let typeDocument = [];
 
+let deparment = [];
+
 function loadDocumentType() {
     if (typeDocument.length > 0) {
       // Si la lista ya existe, utilizarla para formar los options
@@ -53,7 +55,7 @@ function createOptions(list) {
       }
       // Realizar la consulta al endpoint para obtener la lista
       // Puedes utilizar fetch u otra función para realizar la solicitud HTTP
-      fetch("http://localhost:8090/inventario/active/findAll/WithoutAssignment")
+      fetch("http://localhost:8090/inventario/ActiveStatus/findAll/typeStatus")
         .then((response) => response.json())
         .then((data) => {
           // Almacenar la lista obtenida
@@ -69,7 +71,7 @@ function createOptions(list) {
   }
 
   function createActiveOptions(list) {
-    const select = document.getElementById("activeAssigment");
+    const select = document.getElementById("activeFormat");
   
     // Limpiar las opciones existentes en el select
     select.innerHTML = "";
@@ -78,27 +80,51 @@ function createOptions(list) {
     list.forEach((item) => {
       const option = document.createElement("option");
       option.value = item.id;
-      option.textContent = item.name + "-" + item.code; 
-      // Agregar el atributo value y establecer su valor
-      option.setAttribute("valueActive", item.value);
+      option.textContent = item.activeDto.name + "-" + item.activeDto.code; 
+      select.appendChild(option);
+    });
+  }
+  document.getElementById('activeFormat').addEventListener('focus', loadActives);
+
+  function loadDeparment() {
+    if (deparment.length > 0) {
+        // Si la lista ya existe, utilizarla para formar los options
+        createDeparmentOptions(deparment);
+        return;
+      }
+      // Realizar la consulta al endpoint para obtener la lista
+      // Puedes utilizar fetch u otra función para realizar la solicitud HTTP
+      fetch("http://localhost:8090/inventario/Deparment/findAll")
+        .then((response) => response.json())
+        .then((data) => {
+          // Almacenar la lista obtenida
+          deparment = data;
+    
+          // Formar los options con la lista obtenida
+          createDeparmentOptions(deparment);
+        })
+        .catch((error) => {
+          console.error("Error al obtener la lista:", error);
+        });
+    
+  }
+
+  function createDeparmentOptions(deparment){
+    const select = document.getElementById("deparment");
+  
+    // Limpiar las opciones existentes en el select
+    select.innerHTML = "";
+  
+    // Crear y agregar las nuevas opciones en base a la lista
+    deparment.forEach((item) => {
+      const option = document.createElement("option");
+      option.value = item.id;
+      option.textContent = item.name; 
       select.appendChild(option);
     });
   }
 
-  function changeValueActive() {
-    const select = document.getElementById("activeAssigment");
-
-    // Obtener el valor del atributo seleccionado
-    const selectedOption = select.options[select.selectedIndex];
-    const attributeValue = selectedOption.getAttribute("valueActive");
-
-    let valueTotal = document.getElementById("totalValue");
-    valueTotal.value = attributeValue;
-
-  }
-
-  document.getElementById('activeAssigment').addEventListener('focus', loadActives);
-  document.getElementById('activeAssigment').addEventListener('change', changeValueActive);
+  document.getElementById('deparment').addEventListener('focus', loadDeparment);
 
   function handleKeyPress(event) {
     if (event.keyCode === 13) { // Verifica si se presionó la tecla Enter
@@ -135,30 +161,31 @@ function createOptions(list) {
     }
   }
 
-  document.getElementById("create-assigned").addEventListener("submit", function(event) {
+  document.getElementById("create-format-leaving").addEventListener("submit", function(event) {
     event.preventDefault(); 
-    const form = document.getElementById("create-assigned");
+    const form = document.getElementById("create-format-leaving");
     const formData = new FormData(form);
     let userDataString = localStorage.getItem("userData");
     let userData = JSON.parse(userDataString);
-    const loan = true;
 
     const headers = {
         "content-type": "application/json; charset=UTF-8"
     }
 
 
-    const activeAssignmentDto = {
+    const leavingFormatDto = {
      workerDto:{
         id: formData.get("idWorker")
       },
-      activeDto:{
-        id: formData.get("activeAssigment")
+      activeStatusDto:{
+        id: formData.get("activeFormat")
       },
-      location: formData.get("location"),
-      totalValue: formData.get("totalValue"),
+      deparmentDto: {
+        id: formData.get("deparment")
+      },
+      status: formData.get("status"),
+      reason: formData.get("reason"),
       requestDate: formData.get("requestDate"),
-      loan: loan,
       userDto:{
         id: userData.id
       }
@@ -167,17 +194,17 @@ function createOptions(list) {
 
 
 
-    fetch("http://localhost:8090/inventario/ActiveAssignment/create", {
+    fetch("http://localhost:8090/inventario/LeavingFormat/create", {
       method: "POST",
       headers: headers,
-      body: JSON.stringify(activeAssignmentDto)
+      body: JSON.stringify(leavingFormatDto)
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        alert('El activo se ha asignado correctamente.');
+        alert('El registro ha sido exitoso.');
         // Redirigir a principal.html
-        window.location.href = 'assigned.html';
+        window.location.href = 'leaving-format-table.html';
       })
       .catch((error) => {
         console.error("Error:", error);

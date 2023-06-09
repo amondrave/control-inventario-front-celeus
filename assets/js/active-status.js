@@ -2,13 +2,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const registrosPorPagina = 10; // Cantidad de registros por página
   let registrosTotales = 0; // Total de registros obtenidos
   let paginaActual = 1; // Página actual
+  let registros = [] // registros 
 
   // Realizar solicitud GET y crear tabla paginada
   function obtenerInventario() {
     fetch("http://localhost:8090/inventario/ActiveStatus/findAll")
       .then((response) => response.json())
       .then((data) => {
-        const registros = data; // Asigna los datos de respuesta a una variable (lista de registros)
+        registros = data; // Asigna los datos de respuesta a una variable (lista de registros)
         console.log(data);
         if (registros.length <= 10) {
           // Mostrar todos los registros sin paginación
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           // Implementar paginación
           // Implementar paginación
+          registrosTotales = registros.length;
           mostrarRegistrosPaginados(registros, paginaActual);
           crearBotonesPaginacion();
         }
