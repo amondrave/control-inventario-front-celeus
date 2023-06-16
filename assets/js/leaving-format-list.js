@@ -34,11 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
   
       // Limpiar contenido previo de la tabla
       tbody.innerHTML = "";
-  
+      let id = 1;
       // Iterar sobre los registros y crear filas en la tabla
       registros.forEach((registro) => {
         const fila = document.createElement("tr");
-        let id = 1;
+        
         // Crear celdas para cada propiedad del registro
         const idCell = document.createElement("td");
         idCell.textContent =id;

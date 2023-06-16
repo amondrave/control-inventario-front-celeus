@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function returnState(loan) {
-        return loan ? "EN PRESTADO":"DEVUELTO"
+        return loan ? "EN PRESTAMO":"DEVUELTO"
     }
   
   
